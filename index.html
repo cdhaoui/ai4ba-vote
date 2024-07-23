@@ -16,18 +16,18 @@
 		</div>
 	</body>
 <script>
-    let mypeerid = ""
-    const receiverId = window.location.hash.substring(1);
-    const peer = new Peer();
+    var mypeerid = ""
+    var receiverId = window.location.hash.substring(1);
+    var peer = new Peer();
     peer.on('open', (id) => {
         mypeerid = id;
         document.getElementById('mypeerid').innerHTML = id.split("-")[0];
         console.log('My peer ID is: ' + id);
-        conn = peer.connect(receiverId);
+        var conn = peer.connect(receiverId);
         conn.on('open', () => {
             console.log('Connected to receiver');
-            const acceptButton = document.getElementById('accept');
-            const rejectButton = document.getElementById('reject');
+            var acceptButton = document.getElementById('accept');
+            var rejectButton = document.getElementById('reject');
             acceptButton.addEventListener('click', () => {
                 console.log('yes sent to receiver');
                 if (conn && conn.open) {
